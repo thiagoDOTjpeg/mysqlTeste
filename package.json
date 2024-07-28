@@ -1,15 +1,7 @@
 {
-  "name": "mysqlteste",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "type": "module",
   "dependencies": {
-    "mysql2": "^3.10.3"
+    "config": "^3.3.12",
+    "mysql": "^2.18.1"
   }
 }
