@@ -2,6 +2,8 @@
   "dependencies": {
     "config": "^3.3.12",
     "mysql": "^2.18.1",
+    "serve": "^14.2.3",
+    "start": "^5.1.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
