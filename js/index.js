@@ -1,36 +1,28 @@
 "use strict";
-var _a, _b, _c;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var mysql = require("mysql");
-var connectar = mysql.createConnection({
-  host: "localhost",
-  port: 8080,
-  user: "thiagoAdmin",
-  password: "Ss7548916@",
-  database: "dbTestes",
+const mysql2_1 = __importDefault(require("mysql2"));
+const nome = document.getElementById("name");
+const sobrenome = document.getElementById("surname");
+const cidadeDeNascimento = document.getElementById("birth-place");
+const numeroAleatorio = Math.round(Math.random() * 10);
+const btnSubmit = document.getElementById("submit");
+const conn = mysql2_1.default.createPool({
+    host: "localhost",
+    port: 8080,
+    user: "thiagoAdmin",
+    password: "Ss7548916@",
+    database: "dbTestes",
 });
-var numeroAleatorio = Math.round(Math.random() * 10);
-var nome =
-  (_a = document.getElementById("input-name")) === null || _a === void 0
-    ? void 0
-    : _a.innerText;
-var sobrenome =
-  (_b = document.getElementById("input-sobrenome")) === null || _b === void 0
-    ? void 0
-    : _b.innerText;
-var cidadeDeNascimento =
-  (_c = document.getElementById("input-cidade-nascimento")) === null ||
-  _c === void 0
-    ? void 0
-    : _c.innerText;
-var enviarDados = connectar.query(
-  "INSERT INTO usuario (userID, nome, sobrenome, cidadeDeNascimento) VALUES ("
-    .concat(numeroAleatorio, ", ")
-    .concat(nome, ", ")
-    .concat(sobrenome, ", ")
-    .concat(cidadeDeNascimento, ")"),
-  function (erro) {
-    if (erro) throw alert("Deu Erro: " + erro);
-    alert("Envio feito com sucesso!!!");
-  }
-);
+btnSubmit.onclick = () => {
+    conn.query(`INSERT INTO usuarios (userID, nome, sobrenome, cidadeDeNascimento) VALUES (${numeroAleatorio}, ${nome.value}, ${sobrenome.value}, ${cidadeDeNascimento.value});`, (erro) => {
+        if (erro) {
+            alert(erro);
+        }
+        else {
+            console.log("Sucesso!!");
+        }
+    });
+};

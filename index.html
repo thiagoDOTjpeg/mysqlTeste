@@ -3,34 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testando MYSQL | THIAGO GRITTI</title>
+    <title>Teste SQL</title>
   </head>
   <body>
-    <form id="loginForm">
-      <input
-        type="text"
-        name="txt-nome"
-        id="input-nome"
-        placeholder="Digite seu Nome"
-      />
-      <br />
-      <input
-        type="text"
-        name="txt-sobrenome"
-        id="input-sobrenome"
-        placeholder="Digite seu Sobrenome"
-      />
-      <br />
-      <input
-        type="text"
-        name="txt-cidade-nascimento"
-        id="input-cidade-nascimento"
-        placeholder="Digite sua cidade de nascimento"
-      />
-      <br />
-      <input type="submit" value="Enviar" />
-    </form>
+    <main>
+      <div id="sign-in-form">
+        <form action="submit">
+          <input type="text" placeholder="Digite seu nome" id="name" />
+          <br />
+          <input type="text" placeholder="Digite seu sobrenome" id="surname" />
+          <br />
+          <input
+            type="text"
+            placeholder="Digite sua cidade de nascimento"
+            id="birth-place"
+          />
+          <br />
+          <input type="button" value="Submit" id="submit" />
+        </form>
+      </div>
 
-    <script type="module" src="js/index.js"></script>
+      <script type="module" src="js/index.js"></script>
+    </main>
   </body>
 </html>

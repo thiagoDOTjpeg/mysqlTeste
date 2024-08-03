@@ -1,6 +1,14 @@
-import * as mysql from "mysql";
+import mysql from "mysql2";
 
-const connectar = mysql.createConnection({
+const nome = document.getElementById("name") as HTMLInputElement;
+const sobrenome = document.getElementById("surname") as HTMLInputElement;
+const cidadeDeNascimento = document.getElementById(
+  "birth-place"
+) as HTMLInputElement;
+const numeroAleatorio = Math.round(Math.random() * 10);
+
+const btnSubmit = document.getElementById("submit") as HTMLInputElement;
+const conn = mysql.createPool({
   host: "localhost",
   port: 8080,
   user: "thiagoAdmin",
@@ -8,19 +16,15 @@ const connectar = mysql.createConnection({
   database: "dbTestes",
 });
 
-const numeroAleatorio = Math.round(Math.random() * 10);
-
-const nome = document.getElementById("input-name")?.innerText;
-const sobrenome = document.getElementById("input-sobrenome")?.innerText;
-const cidadeDeNascimento = document.getElementById(
-  "input-cidade-nascimento"
-)?.innerText;
-
-const enviarDados = connectar.query(
-  `INSERT INTO usuario (userID, nome, sobrenome, cidadeDeNascimento) VALUES (${numeroAleatorio}, ${nome}, ${sobrenome}, ${cidadeDeNascimento})`,
-  (erro) => {
-    if (erro) throw alert("Deu Erro: " + erro);
-
-    alert("Envio feito com sucesso!!!");
-  }
-);
+btnSubmit.onclick = () => {
+  conn.query(
+    `INSERT INTO usuarios (userID, nome, sobrenome, cidadeDeNascimento) VALUES (${numeroAleatorio}, ${nome.value}, ${sobrenome.value}, ${cidadeDeNascimento.value});`,
+    (erro) => {
+      if (erro) {
+        alert(erro);
+      } else {
+        console.log("Sucesso!!");
+      }
+    }
+  );
+};

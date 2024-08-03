@@ -2,11 +2,25 @@
   "dependencies": {
     "config": "^3.3.12",
     "mysql": "^2.18.1",
+    "mysql2": "^3.11.0",
+    "parcel": "^2.12.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.7",
-    "@types/mysql": "^2.15.26"
+    "@types/mysql": "^2.15.26",
+    "assert": "^2.1.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "string_decoder": "^1.3.0",
+    "timers-browserify": "^2.0.12",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
+    "vm-browserify": "^1.1.2"
   },
   "name": "mysqlteste",
   "version": "1.0.0",
